@@ -93,28 +93,28 @@
     ```java
     @Test
     public void executeTest() throws Exception {
-      String jdbcUrl = "jdbc:mysql://localhost:3306/persistence?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/persistence?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false";
         String username = "root";
-      String password = "123456";
+        String password = "123456";
     
-      HikaricpInteractor hikaricpInteractor = new HikaricpInteractor(jdbcUrl,username,password);
+        HikaricpInteractor hikaricpInteractor = new HikaricpInteractor(jdbcUrl,username,password);
     
-      /* select */
+        /* select */
         /* select for HashMap<String,Object> list */
         List<?> userHashMapList = hikaricpInteractor.execute("select * from user;",null);
         System.out.println(userHashMapList);
         /* select for pojo list */
-        //        List<User> userList = (List<User>) hikaricpInteractor.execute("select * from user;",User.class);
-        //        System.out.println(userList);
+    //        List<User> userList = (List<User>) hikaricpInteractor.execute("select * from user;",User.class);
+    //        System.out.println(userList);
     
         /* insert */
-        //        hikaricpInteractor.execute("insert into user (username,password) values ('wangwu','123456');",null);
+    //        hikaricpInteractor.execute("insert into user (username,password) values ('wangwu','123456');",null);
     
         /* update */
-        //        hikaricpInteractor.execute("update user set password=concat(password,'*') where username='wangwu';",null);
+    //        hikaricpInteractor.execute("update user set password=concat(password,'*') where username='wangwu';",null);
     
         /* delete */
-        //        hikaricpInteractor.execute("delete from user where username='wangwu';",null);
+    //        hikaricpInteractor.execute("delete from user where username='wangwu';",null);
     }
     ```
   
