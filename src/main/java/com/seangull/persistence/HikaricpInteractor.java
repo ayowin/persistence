@@ -32,7 +32,15 @@ public class HikaricpInteractor {
         hikariConfig.setPassword(password);
         hikariConfig.setConnectionTimeout(connectTimeout); /* unit: ms */
         hikariConfig.setIdleTimeout(idleTimeout); /* unit: ms */
-        hikariConfig.setMaxLifetime(maxLifeTime); /* unit: ms */
+        /* 
+         * maxLifeTime: 
+         *      1. unit: ms, default 30*60*1000. 
+         *      2. it should be at least 30 seconds less than any
+         *         databases' connection time limit,such as mysql's
+         *         wait_timeout. so you can set this value or config
+         *         database server's connection time limit.
+         */
+        hikariConfig.setMaxLifetime(maxLifeTime); 
         hikariConfig.setMaximumPoolSize(maximumPoolSize); /* recommend: (core_count*2) + effective_spindle_count */
         hikariConfig.setMinimumIdle(minimumIdle);
         hikariConfig.setAutoCommit(autoCommit);
